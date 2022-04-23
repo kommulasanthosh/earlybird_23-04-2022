@@ -1,0 +1,108 @@
+<div class="detailContainer container">
+    <div class="row orderContainer">
+        <div class="col-lg-6 col-md-6 col-sm-6 orderContainerItem1">
+            <p>Order #{{orderDetails.id}} <br>
+                <small>Order ID {{orderDetails.orderid}}</small>
+            </p>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 orderContainerItem2">
+            <p>Status: {{orderDetails.status}} 
+               <br> Assignee: {{orderDetails?.delivery_boy?.first_name}}
+            </p>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 orderContainerItem3">
+            <img class="closeIcon" src="../../../../../assets/images/close.svg" (click)="close()" >
+        </div>
+
+    </div>
+    <div class="row addressContainer">
+        <div class="col-lg-6 col-md-6 col-sm-6 addressContainerItems">
+            <p>Delivery Address<br>
+                <small>
+                    {{orderDetails.address_detail?.full_name}} , {{orderDetails.address_detail?.delivery_line_1}},<br> 
+                    {{orderDetails.address_detail?.delivery_line_2}},<br>
+                    {{orderDetails.address_detail?.city}}  {{orderDetails.address_detail?.pincode}}<br> 
+                    Mobile No.: {{orderDetails.address_detail?.mobile_number}} 
+                </small>
+            </p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 addressContainerItems">
+            <p>
+                Order Details<br>
+                <small>
+                   
+                    Payment method: {{orderDetails.payment_method}}<br>
+                    Ordered on  {{orderDetails.date_of_order}}<br>
+                </small>
+            </p>
+        </div>
+    </div>
+    <div class="row tableContainer ">
+      <div class="container tableContainerItems">
+          <table class="container">
+              <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Items</th>
+                    <th>Variant</th>
+                    <th>QTY</th>
+                    <th>PRICE(In Rupees)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let data of orderDetails.order_items; let i = index" >
+                    <td>{{i+1}}</td>
+                    <td>{{data.product.name}}</td>
+                    <td>
+                        {{data.product_variant.quantity}} {{data.product_variant.variant_type}}</td>
+                    <td>{{data.count}}</td>
+                    <td>{{data.cost}}</td>
+              </tbody>
+          </table>
+      </div>
+      <table>
+        <tbody class="table2">
+            <tr>
+                <td></td>
+                <td>
+                    <b>
+                        In Rupees
+                    </b></td>
+            </tr>
+            <tr>
+                <td><i>Total</i></td>
+                <td>
+                    {{orderDetails.bill}}
+                </td>
+            </tr>
+            <tr>
+              <td><i>Delivery Fee</i></td>
+              <td>{{orderDetails.delivery_fee}}</td>
+            </tr>
+            <tr>
+              <td><i>GST</i></td>
+              <td>{{orderDetails.gst}}</td>
+            </tr>
+            <!-- <tr>
+               <td><i>CGST 10%</i></td>
+              <td>RS.{{orderDetails.cgst}}</td> 
+            </tr> -->
+        </tbody>
+      </table>
+      <table class="table2 total">
+          <tbody>
+            <tr>
+                <td><i>Grand Total</i></td>
+                <td>RS.{{orderDetails.total_bill}}</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="row buttonDefault" *ngIf="isPacked && !orderDetails.packed">
+        <div class=" detailsoptions">
+            <div class="detailButton">
+                <a (click)="packed()">Packed</a>
+            </div>
+        </div>
+    </div> 
+ </div> 

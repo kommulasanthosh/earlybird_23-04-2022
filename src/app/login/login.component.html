@@ -1,0 +1,48 @@
+
+<div class="row default">
+    <div class="col-lg-4 col-md-3 col-sm-2 default backgroundlogo">
+        <div class="navlogo">
+            <img src="../../assets/images/log in logo.svg">
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-10 default backgroundlogin">
+      <div *ngIf="showToaster">
+        <div class="toaster" (mouseout)="showToaster=false">
+          {{toast.message}}
+          <a class="close" (click)="removeToaster()">&times;</a>
+        </div>
+      </div>
+        <div class="login">
+            <div class="loginContainer">
+              <div class="loginHeader">
+               admin login
+              </div>
+              <form #myForm = 'ngForm'>
+                <div class="inputContainer">
+              
+                  <input type="text"  name="Email" #Email='ngModel' placeholder="admin@earlybird.com" 
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"                 
+                   [(ngModel)] = "loginData.email" required><span><img src="../../assets/images/profile.svg"></span>
+                   <div *ngIf="Email.errors && (Email.valid || Email.touched)">
+                    <small class="errdisplay" *ngIf="Email.errors.required">*E-mail is required</small>
+                    <small class="errdisplay" *ngIf="Email.errors.pattern">*Invalid E-mail Id</small>
+                    </div>
+                </div>
+                
+                
+                <div  class="inputContainer">
+                
+                  <input type="password" name="password" #password='ngModel'  placeholder="password"  [(ngModel)] = "loginData.password" required><span><img src="../../assets/images/password.svg"></span>
+                  <div>
+                    <small class="errdisplay" [class.d-none]="password.valid || password.untouched">*password is required</small>
+                  </div>
+                </div>
+                
+                <p>forgot your Password?</p>
+                <button [disabled]="myForm.form.invalid" type="submit" (click)="login()">Login</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  

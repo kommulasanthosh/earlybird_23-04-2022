@@ -1,0 +1,29 @@
+<div class="ordersDefault">
+    <div class="row  ordersDefault">
+        <div class="orderlistNav">
+            <div class="ordersnavLists">
+                
+                    
+                    <a
+                     id="nav-home-tab"
+                    data-toggle="tab" role="tab"
+                     [class.linkActive]="selectedRoute === tab.url"
+                    *ngFor="let tab of tabs; let i as index" (click)="getRoute(tab.url)"
+                    aria-controls="nav-home" aria-selected="true">
+                        {{tab.name}}
+                 </a> 
+
+                
+            </div>
+            <div class="sideicons">
+                
+                    <!-- <a><img src="../../../assets/images/sort.svg">Sort</a>
+                    <a><img src="../../../assets/images/filter.svg">Filter</a> -->
+                
+            </div>
+        </div>
+    </div>
+    <div class="row  ordersDefault tableContainer">
+        <router-outlet></router-outlet>
+    </div>
+</div>

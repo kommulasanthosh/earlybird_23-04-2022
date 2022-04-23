@@ -1,0 +1,54 @@
+.navcontainer{
+    background-color: #E2E2E2B2;
+    width: 100;
+    height: 95.5vh;
+    z-index: 1;
+
+}
+.logo{
+    padding: 10px 21px
+}
+ ul{
+    margin: 0%;
+    padding: 0%;
+}
+ .orderslistOptions ul li{
+    display: block;
+    list-style: none;
+    padding: 16px 19px;
+    margin: 0%;
+    border-bottom: 1px solid #BDBDBD;
+ }
+ .orderslistOptions ul li:hover{
+    background: #2F80ED;
+    cursor: pointer;
+    color: aliceblue;
+     }
+img{
+    padding-right: 8px;
+}
+.nav-item{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    img{
+        height: 39.17px;
+        width: 39.17px;
+        left: 35px;
+        top: 68px;
+        border-radius: 0px;
+
+    }
+    p{
+        font-family: Montserrat;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 12px;
+        letter-spacing: 0px;
+        text-align: center;
+        color: #4F4F4F;
+
+    }
+}
