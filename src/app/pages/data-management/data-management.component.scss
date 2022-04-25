@@ -25,5 +25,19 @@
 
 }
 .dManagement_right{
-    float: right;
+    display: flex;
+   
+    button {
+        width: 138px;
+        height: 28px;
+        color: white;
+        float: right;
+        border:0px;
+        
+        /* Blue 1 */
+        
+        background: #2F80ED;
+        border-radius: 4px;
+    }
 }
+ 
